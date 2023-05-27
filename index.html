@@ -3,18 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TV Show Project | My Name (My GitHub username)</title>
+    <title>TV Show Project | Melese (Melesegithub)</title>
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
 
   <body>
-    <div id="root">
+    <div class="search">
+      <div>
+        <input
+          type="search"
+          id="search"
+          placeholder="Search..."
+          data-search
+        />&nbsp; <label for="search"> </label>
+      </div>
+        <div class="selectShow">
+        <label for="select">Select show:</label>&nbsp;
+        <select name="type" onchange="showFunction()" id="mySelectShow" selectShow>
+          <option value="blanckOption-0-0">All-Shows</option>
+        </select>
+        
+      </div> 
+      <div class="selectMenu"> 
+         <label for="select">Select episode:</label>&nbsp;
+        <select name="type" onchange="myFunction()" id="mySelect" selectEpisode>
+          <!-- <option value="blanckOption-0-0">Episodes</option> -->
+        </select>
+        
+      </div>  
+      </div>
     </div>
+
+    <div id="allEpisodes" data-episode-container></div>
+    <template data-episode-template>
+      <div id="episodes">
+        <h3 class="header" data-header></h3>
+        <img class="image" data-image />
+        <p class="para" data-para></p>
+        <a class="link" data-link></a>
+      </div>
+    </template>
+    <!-- ///forshows/// -->
+    <div id="allShows" data-show-container onclick="showFunction()"></div>
+    <template data-show-template>
+      
+
+      <div >
+        <h1 class="header" data-header></h1>
+        <div id="shows">
+        <div>
+                    <img class="image" data-image />
+         
+          <a class="link" data-link></a>
+        </div>
+        <div>
+          <p class="para" data-para></p>
+        </div>
+        <div class="leftStatus">
+          <p class="rated" data-rated></p>
+          <p class="gener" data-gener></p>
+          <p class="status" data-status></p>
+          <p class="runtime" data-runtime></p>
+        </div>
+        </div></div>
+    </template>
+
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>
-
+    <script src="shows.js"></script>
     <!-- Loads YOUR javascript code -->
     <script src="script.js"></script>
   </body>
